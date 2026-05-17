@@ -22,8 +22,8 @@
 ## 1 — Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/predator-bites/quizzic__fullstack.git
+cd quizzic__fullstack
 ```
 
 ---
