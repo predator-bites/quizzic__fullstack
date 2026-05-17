@@ -1,0 +1,128 @@
+# Quizzic — Fullstack Setup Guide
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 18 + TypeScript + Vite + SCSS |
+| Backend | Node.js + Express 5 + TypeScript + Prisma 7 |
+| Database | PostgreSQL (hosted on [Prisma Postgres](https://prisma.io)) |
+| Runner | `concurrently` (both servers from one command) |
+
+---
+
+## Prerequisites
+
+- **Node.js 20+** — check with `node -v`
+- **npm 9+** — check with `npm -v`
+- A **PostgreSQL connection string** (local or [Prisma Postgres](https://console.prisma.io))
+
+---
+
+## 1 — Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+```
+
+---
+
+## 2 — Install dependencies
+
+Install each project separately (the frontend's `postinstall` script must run from its own directory):
+
+```bash
+# Root — installs concurrently
+npm install
+
+# Backend
+cd backend && npm install && cd ..
+
+# Frontend
+cd frontend && npm install && cd ..
+```
+
+---
+
+## 3 — Configure the backend environment
+
+Create a database with Prisma:
+
+```bash
+npx create-db
+```
+
+Claim a database in the cloud and copy your connection string. Then create a `.env` file inside the `backend/` folder:
+
+```bash
+# backend/.env
+DATABASE_URL="enter your connection string here"
+PORT=3000
+```
+
+---
+
+## 4 — Run database migrations
+
+```bash
+cd backend
+npx prisma migrate deploy
+```
+
+Then generate the Prisma client:
+
+```bash
+npx prisma generate
+```
+
+---
+
+## 5 — Run frontend and backend concurrently
+
+From the **project root**:
+
+```bash
+npm run dev
+```
+
+---
+
+## Project structure
+
+```
+quizzic/
+├── backend/
+│   ├── prisma/
+│   │   ├── schema.prisma       # DB models: Quiz, Question, CheckboxOption
+│   │   └── migrations/         # SQL migration history
+│   ├── src/
+│   │   ├── controllers/        # Route handlers
+│   │   ├── repository/         # Prisma queries
+│   │   ├── routes/             # Express routers
+│   │   ├── middlewares/        # Error handler
+│   │   └── index.ts            # Server entry point
+│   ├── .env                    # DATABASE_URL (not committed)
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api/                # Fetch wrapper + quiz API methods
+│   │   ├── components/         # Reusable UI components
+│   │   ├── pages/              # Route-level pages
+│   │   └── types/              # Global TypeScript types
+│   └── package.json
+│
+└── package.json                # Root workspace + concurrently scripts
+```
+
+---
+
+## API reference
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/quizzes` | List all quizzes (id, title, questionCount) |
+| `POST` | `/quizzes` | Create a new quiz |
+| `GET` | `/quizzes/:id` | Get full quiz with all questions |
+| `DELETE` | `/quizzes/:id` | Delete a quiz |
