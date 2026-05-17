@@ -2,12 +2,12 @@
 
 ## Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 18 + TypeScript + Vite + SCSS |
-| Backend | Node.js + Express 5 + TypeScript + Prisma 7 |
+| Layer    | Technology                                                  |
+| -------- | ----------------------------------------------------------- |
+| Frontend | React 18 + TypeScript + Vite + SCSS                         |
+| Backend  | Node.js + Express 5 + TypeScript + Prisma 7                 |
 | Database | PostgreSQL (hosted on [Prisma Postgres](https://prisma.io)) |
-| Runner | `concurrently` (both servers from one command) |
+| Runner   | `concurrently` (both servers from one command)              |
 
 ---
 
@@ -22,8 +22,8 @@
 ## 1 — Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/predator-bites/quizzic__fullstack.git
+cd quizzic__fullstack
 ```
 
 ---
@@ -47,10 +47,10 @@ cd frontend && npm install && cd ..
 
 ## 3 — Configure the backend environment
 
-Create a database with Prisma:
+Enter backend directory and create a database with Prisma:
 
 ```bash
-npx create-db
+cd backend && npx create-db
 ```
 
 Claim a database in the cloud and copy your connection string. Then create a `.env` file inside the `backend/` folder:
@@ -66,7 +66,6 @@ PORT=3000
 ## 4 — Run database migrations
 
 ```bash
-cd backend
 npx prisma migrate deploy
 ```
 
@@ -83,7 +82,7 @@ npx prisma generate
 From the **project root**:
 
 ```bash
-npm run dev
+cd .. && npm run dev
 ```
 
 ---
@@ -120,9 +119,9 @@ quizzic/
 
 ## API reference
 
-| Method | Path | Description |
-|---|---|---|
-| `GET` | `/quizzes` | List all quizzes (id, title, questionCount) |
-| `POST` | `/quizzes` | Create a new quiz |
-| `GET` | `/quizzes/:id` | Get full quiz with all questions |
-| `DELETE` | `/quizzes/:id` | Delete a quiz |
+| Method   | Path           | Description                                 |
+| -------- | -------------- | ------------------------------------------- |
+| `GET`    | `/quizzes`     | List all quizzes (id, title, questionCount) |
+| `POST`   | `/quizzes`     | Create a new quiz                           |
+| `GET`    | `/quizzes/:id` | Get full quiz with all questions            |
+| `DELETE` | `/quizzes/:id` | Delete a quiz                               |
