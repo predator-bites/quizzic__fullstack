@@ -1,0 +1,80 @@
+.questionEditor {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: 2px solid $main;
+  overflow: hidden;
+  transition: box-shadow 200ms;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba($main, 0.15);
+  }
+
+  &__header {
+    background-color: $main;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+  }
+
+  &__number {
+    color: $secondary;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__removeBtn {
+    border: none;
+    cursor: pointer;
+  }
+
+  &__body {
+    padding: 12px;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background-color: rgba($secondary, 0.5);
+
+    @include on-tablet {
+      padding: 20px;
+    }
+  }
+
+  &__textInput {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid $main;
+    background-color: transparent;
+    color: $main;
+    font-size: 16px;
+    transition: border-color 200ms;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $orange;
+    }
+  }
+
+  &__answerSection {
+    border-top: 1px solid rgba($main, 0.2);
+    padding-top: 16px;
+    min-height: 80px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "extends": "@mate-academy/students-ts-config",
+  "include": [
+    "src",
+    "/src/types/index.d.ts"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "types": ["node"]
+  }
+}
+

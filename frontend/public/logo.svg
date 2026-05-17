@@ -1,0 +1,8 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>QuizForge icon</title>
+  <desc>Dark hexagon with a golden lightning bolt</desc>
+  <g transform="translate(100, 100)">
+    <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="#0F172A"/>
+    <path d="M-10,-38 L13,-38 L3,-6 L22,-6 L-16,38 L-6,6 L-28,6 Z" fill="#FBBF24"/>
+  </g>
+</svg>

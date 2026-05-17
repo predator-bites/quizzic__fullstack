@@ -1,0 +1,67 @@
+.qTypeSelector {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px;
+    border-radius: 10px;
+    border: 2px solid $main;
+    background-color: transparent;
+    color: $main;
+    cursor: pointer;
+    transition: all 200ms ease;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    aspect-ratio:  3 / 2;
+
+
+    &:hover {
+      background-color: rgba($main, 0.5);
+      transform: translateY(-2px);
+    }
+
+    &--active {
+      background-color: $main;
+      color: $secondary;
+      box-shadow: 0 4px 16px rgba($main, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__emoji {
+    font-size: 18px;
+    line-height: 1;
+
+    @include on-tablet {
+      font-size: 24px;
+    }
+
+    @include on-desktop {
+      font-size: 28px;
+    }
+  }
+
+  &__label {
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+
+    @include on-tablet {
+      font-size: 13px;
+    }
+
+    @include on-desktop {
+      font-size: 15px;
+    }
+  }
+}

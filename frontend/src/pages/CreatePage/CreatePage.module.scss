@@ -1,0 +1,188 @@
+.createPage {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 16px 60px;
+
+  @include on-tablet {
+    padding: 30px 40px 80px;
+  }
+
+  @include on-desktop {
+    max-width: 780px;
+    margin-inline: auto;
+    padding: 40px 0 100px;
+  }
+
+  &__form {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  &__section {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__pageTitle {
+    font-size: 28px;
+    color: $main;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__titleField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__fieldLabel {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  &__titleInput {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 2px solid $main;
+    background-color: transparent;
+    color: $main;
+    font-size: 18px;
+    transition: border-color 200ms, box-shadow 200ms;
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $orange;
+      box-shadow: 0 0 0 4px rgba($orange, 0.15);
+    }
+
+    &--error {
+      border-color: $orange;
+    }
+  }
+
+  &__sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__sectionTitle {
+    font-size: 20px;
+    color: $main;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: $main;
+    color: $secondary;
+    font-size: 13px;
+  }
+
+  &__questionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+  }
+
+  &__addQuestion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 2px dashed $main;
+    background-color: transparent;
+    color: $main;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+    transition: all 200ms;
+
+    &:hover {
+      background-color: rgba($main, 0.07);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__submitBtn {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: transform 200ms, box-shadow 200ms;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($main, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__fieldError {
+    font-size: 12px;
+    color: $orange;
+    margin: 4px 0 0;
+
+    &--question {
+      margin-top: 6px;
+      padding-left: 4px;
+    }
+  }
+
+  &__hint {
+    font-size: 13px;
+    opacity: 0.6;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__error {
+    font-size: 13px;
+    color: $orange;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+  }
+}

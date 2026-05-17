@@ -1,0 +1,20 @@
+@import './styles/vars.scss';
+@import './styles/animations.scss';
+@import './styles/mixins.scss';
+@import './styles/main.scss';
+
+@import './components/Header/Header.module.scss';
+@import './components/Logo/Logo.module.scss';
+@import './components/Button/Button.module.scss';
+@import './components/Loader/Loader.module.scss';
+@import './components/Icon/Icon.module.scss';
+@import './components/QuestionTypeSelector/QuestionTypeSelector.module.scss';
+@import './components/BooleanQuestionEditor/BooleanQuestionEditor.module.scss';
+@import './components/InputQuestionEditor/InputQuestionEditor.module.scss';
+@import './components/CheckboxQuestionEditor/CheckboxQuestionEditor.module.scss';
+@import './components/QuestionEditor/QuestionEditor.module.scss';
+
+@import './pages/CreatePage/CreatePage.module.scss';
+@import './pages/DetailsPage/DetailsPage.module.scss';
+@import './pages/HelloPage/HelloPage.module.scss';
+@import './pages/ListPage/ListPage.module.scss';

@@ -1,0 +1,172 @@
+.listPage {
+  padding: 20px 16px 60px;
+
+  @include on-tablet {
+    padding: 30px 40px 80px;
+  }
+
+  @include on-desktop {
+    width: 100%;
+    max-width: 780px;
+    margin-inline: auto;
+    padding: 40px 0 100px;
+  }
+
+  // ─── Header ────────────────────────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    font-size: 28px;
+    color: $main;
+    margin: 0;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  &__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 50px;
+    background-color: $main;
+    color: $secondary;
+    font-size: 14px;
+  }
+
+  // ─── List ──────────────────────────────────────────────────────────────────
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 2px solid $main;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 180ms, transform 180ms, box-shadow 180ms;
+
+    &:hover {
+      background-color: rgba($main, 0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($main, 0.12);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  &__quizTitle {
+    font-size: 17px;
+    color: $main;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include on-tablet {
+      font-size: 19px;
+    }
+  }
+
+  &__quizMeta {
+    font-size: 12px;
+    opacity: 0.55;
+    color: $main;
+  }
+
+  // ─── Delete button ─────────────────────────────────────────────────────────
+  &__deleteBtn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba($orange, 0.5);
+    background-color: transparent;
+    color: $orange;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 180ms, border-color 180ms, transform 180ms;
+
+    &:hover {
+      background-color: $orange;
+      border-color: $orange;
+      color: #fff;
+      transform: scale(1.12);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Empty / Error states ──────────────────────────────────────────────────
+  &__empty {
+    font-size: 16px;
+    opacity: 0.6;
+    color: $main;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  &__emptyLink {
+    background: none;
+    border: none;
+    padding: 0;
+    color: $orange;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: underline;
+  }
+
+  &__error {
+    font-size: 14px;
+    color: $orange;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  // ─── Spinner ───────────────────────────────────────────────────────────────
+  &__spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid rgba($main, 0.15);
+    border-top-color: $main;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 80px auto 0;
+  }
+}

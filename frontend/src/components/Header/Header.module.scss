@@ -1,0 +1,94 @@
+.header {
+  background-color: $light--main;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  max-height: 100px;
+  gap: 16px;
+
+  @include on-tablet {
+    padding: 0 40px;
+  }
+
+  &__logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  // ─── Nav ───────────────────────────────────────────────────────────────────
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__navLink {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: rgba($secondary, 0.7);
+    text-decoration: none;
+    transition: color 200ms, background-color 200ms;
+
+    @include on-tablet {
+      font-size: 15px;
+    }
+
+    &:hover {
+      color: $secondary;
+      background-color: rgba($secondary, 0.08);
+    }
+
+    // Active state — underline accent
+    &--active {
+      color: $secondary;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        background-color: $orange;
+        border-radius: 2px;
+        margin-top: 2px;
+      }
+    }
+
+    // CTA pill style for "+ Create"
+    &--cta {
+      background-color: $secondary;
+      color: $main;
+      font-size: 14px;
+      padding: 9px 20px;
+      transition: transform 180ms, box-shadow 180ms, background-color 200ms;
+
+      @include on-tablet {
+        font-size: 15px;
+      }
+
+      &:hover {
+        background-color: $secondary;
+        color: $main;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba($secondary, 0.35);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      // When active, keep it visually distinct from the underline style
+      &.header__navLink--active {
+        box-shadow: 0 0 0 3px rgba($secondary, 0.3);
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

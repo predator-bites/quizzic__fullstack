@@ -1,0 +1,44 @@
+$loader__size: 20px;
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  max-width: $loader__size;
+  max-height: $loader__size;
+
+  display: flex;
+  place-self: center;
+  animation: 1s infinite linear spin;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  opacity: 1;
+
+  @include on-tablet {
+    max-height: $loader__size * 1.5;
+    max-width: $loader__size * 1.5;
+  }
+
+  @include on-desktop {
+    max-height: $loader__size * 3;
+    max-width: $loader__size * 3;
+  }
+}
+
+.page__loader {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+
+  background-color: $secondary;
+  position: absolute;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

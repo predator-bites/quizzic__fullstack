@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  font-family: "Erica One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 1fr;
+
+  min-height: 100vh;
+  background-color: $secondary;
+  color: $main;
+
+  &__content {
+    @include on-tablet {
+      margin-inline: 20px;
+    }
+  }
+}

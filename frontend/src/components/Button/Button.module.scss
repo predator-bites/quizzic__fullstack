@@ -1,0 +1,27 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $secondary;
+  color: $main;
+  border-radius: 10px;
+
+  &--invert {
+    background-color: $main;
+    color: $secondary;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  @each $name, $size in $sizes {
+    &--#{$name} {
+      width: $size;
+      height: $size;
+    }
+  }
+}
